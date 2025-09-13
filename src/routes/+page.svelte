@@ -1,12 +1,14 @@
-<script>
+<script lang="ts">
   import AppointmentsList from "$lib/components/Appointments/AppointmentsList.svelte";
   import ClientsList from "$lib/components/Clients/ClientsList.svelte";
   import Heading from "$lib/components/Heading.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
 
   let isOn = $state(false);
-  function sidebar() {
+  let petName = $state('');
+  function sidebar(name:string) {
     isOn = !isOn;
+    petName = name;
   }
 </script>
 
@@ -18,6 +20,6 @@
     <ClientsList />
   </div>
   <div class="flex-2">
-    <Sidebar turnedOn={isOn} />
+    <Sidebar turnedOn={isOn} petName={petName}/>
   </div>
 </section>
