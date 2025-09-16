@@ -1,6 +1,7 @@
 <script>
   import AppointmentCard from './AppointmentCard.svelte'
   let { sidebar } = $props();
+  let sidebarOpen = $state(false);
   let pets = $state([
     {
       name: 'John',
@@ -34,6 +35,6 @@
 
 <section class="flex flex-wrap gap-4 my-10">
   {#each pets as pet}  
-    <AppointmentCard sidebar={sidebar} pet={pet}/>
+    <AppointmentCard sidebar={sidebar} pet={pet} sidebarOpen={sidebarOpen}/>
   {/each}
 </section>
